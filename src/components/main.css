@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.mainbox{
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    border: 2px solid;
+}
+.rightbox{
+    width: 70%;
+       background-image: url("./images/quest.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.leftbox{
+    width: 30%;
+    border: 2px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: brown;
+
+}
+h1{
+    height: 50%;
+    font-size: 5rem;
+    line-height: 5rem;
+    text-align: center;
+}
+.image{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+img{
+    width:80%;
+}
+.questionbox{
+    width: 90%;
+    height: 85%;
+    background: rgba(0, 0, 0,0.5);
+    border: 1px solid;
+    padding: 10px;
+}
+.question{
+    font-size: 2rem;
+    color: white;
+}
+.question strong{
+    color: black;
+}
