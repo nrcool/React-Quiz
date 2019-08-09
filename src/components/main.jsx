@@ -1,10 +1,23 @@
 import React from 'react';
 import js from "./images/quiz.png";
 import "./main.css"
+import Questions from './questions';
 
 
-export default function Main() {
-    return (
+export default class Main extends React.Component {
+        state={
+            data:[]
+        }
+        componentDidMount(){
+            fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple")
+            .then(res=>res.json()).then(data=>{
+               this.setState({
+                   data:data.results
+               })
+            })
+        }
+    render(){
+        return (
         <section className="mainbox">
             <div className="leftbox">
                 <h1>1</h1>
@@ -13,14 +26,11 @@ export default function Main() {
                 </div>
             </div>
             <div className="rightbox">
-                <div className="questionbox">
-                <p className="question"><strong>Question:</strong> question will displayed here?</p>
-                <button type="button" className="btn btn-warning m-2">answer 1</button><br/>
-                <button type="button" className="btn btn-warning m-2">answer 2</button><br/>
-                <button type="button" className="btn btn-warning m-2">answer 3</button><br/>
-                <button type="button" className="btn btn-warning m-2">answer 4</button><br/>
-                </div>
+            <Questions data={this.state.data}/>
             </div>
         </section>
     )
 }
+
+    }
+    
