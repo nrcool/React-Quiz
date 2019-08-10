@@ -6,7 +6,8 @@ import Questions from './questions';
 
 export default class Main extends React.Component {
         state={
-            data:[]
+            data:[],
+            start:false
         }
         componentDidMount(){
             fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple")
@@ -16,7 +17,13 @@ export default class Main extends React.Component {
                })
             })
         }
+        startgame=()=>{
+            this.setState({
+                start:true
+            })
+        }
     render(){
+        console.log(this.state.data)
         return (
         <section className="mainbox">
             <div className="leftbox">
@@ -26,7 +33,8 @@ export default class Main extends React.Component {
                 </div>
             </div>
             <div className="rightbox">
-            <Questions data={this.state.data}/>
+                {this.state.start?(<Questions data={this.state.data}/> ):(<button type="button" onClick={this.startgame} className="btn start btn-warning m-2">START</button>)}
+           
             </div>
         </section>
     )
