@@ -10,12 +10,20 @@
 }
 .rightbox{
     width: 70%;
-       background-image: url("./images/quest.jpeg");
+    height: 100%;
+    background-image: url("./images/quest.jpeg");
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items:center;
+}
+.start{
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+    border-radius: 50px;
+    font-size: 2rem;
 }
 .leftbox{
     width: 30%;
@@ -41,18 +49,4 @@ h1{
 }
 img{
     width:80%;
-}
-.questionbox{
-    width: 90%;
-    height: 85%;
-    background: rgba(0, 0, 0,0.5);
-    border: 1px solid;
-    padding: 10px;
-}
-.question{
-    font-size: 2rem;
-    color: white;
-}
-.question strong{
-    color: black;
 }
