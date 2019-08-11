@@ -10,7 +10,7 @@ export default class Main extends React.Component {
             start:false
         }
         componentDidMount(){
-            fetch("https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple")
+            fetch(`https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple`)
             .then(res=>res.json()).then(data=>{
                this.setState({
                    data:data.results
@@ -21,6 +21,14 @@ export default class Main extends React.Component {
             this.setState({
                 start:true
             })
+        }
+        restart=()=>{
+           
+            this.setState({
+                data:[],
+                start:false
+            }) 
+            this.componentDidMount();
         }
     render(){
         console.log(this.state.data)
@@ -33,7 +41,7 @@ export default class Main extends React.Component {
                 </div>
             </div>
             <div className="rightbox">
-                {this.state.start?(<Questions data={this.state.data}/> ):(<button type="button" onClick={this.startgame} className="btn start btn-warning m-2">START</button>)}
+                {this.state.start?(<Questions restart={this.restart} data={this.state.data}/> ):(<button type="button" onClick={this.startgame} className="btn start btn-warning m-2">START</button>)}
            
             </div>
         </section>
