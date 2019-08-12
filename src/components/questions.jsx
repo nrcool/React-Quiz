@@ -28,7 +28,7 @@ export default class Questions extends React.Component{
       index:this.state.index+1,
       checked:[false,false,false,false]
     })
-   console.log("score is "+this.state.score)
+   this.props.datafromchild(this.state.index);
   }
   restart=()=>{
    this.props.restart();
@@ -47,8 +47,14 @@ export default class Questions extends React.Component{
                       {newarray.map((option,i)=>{
                         return(
                           <>
-                      <input type="checkbox" id={i} value={option} checked={this.state.checked[i]} onChange={()=>this.checkbox(i,option)}/>
-                        <label className="option" htmlFor={i}><span className="a">{i+1}</span><span>{option}</span> 
+                      <input type="checkbox" 
+                      id={i} 
+                      value={option}
+                      checked={this.state.checked[i]} 
+                      onChange={()=>this.checkbox(i,option)}
+                      style={{display:"none"}}
+                      />
+                        <label className="option" htmlFor={i}><strong className="a">{i+1}</strong><span>{option}</span> 
                       </label>
                       </>
                         )
