@@ -8,6 +8,11 @@
     display: flex;
     border: 2px solid;
 }
+.questionCount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .rightbox{
     width: 70%;
     height: 100%;
